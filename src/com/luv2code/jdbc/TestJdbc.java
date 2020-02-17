@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class TestJdbc {
 
 	public static void main(String[] args) {
-		String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/hb_student_tracker?useSSL=false&serverTimezone=UTC";
+		String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/hb-01-one-to-one-uni?useSSL=false&serverTimezone=UTC";
 		String user = "hbstudent";
 		String pass = "hbstudent";
 		
