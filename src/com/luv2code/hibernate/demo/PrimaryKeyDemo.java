@@ -1,5 +1,7 @@
 package com.luv2code.hibernate.demo;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,9 +21,12 @@ public class PrimaryKeyDemo {
 			// use the session object to save java object
 			// create 3 student objects
 			System.out.println("Creating new student object...");
-			Student tempStudent1 = new Student("John", "Deo", "John@luv2code.com");
-			Student tempStudent2 = new Student("Marry", "Public", "Marryl@luv2code.com");
-			Student tempStudent3 = new Student("Paul", "Wall", "Paul@luv2code.com");
+			String theDateOfBirthStr = "31/12/1998";
+			Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
+
+			Student tempStudent1 = new Student("John", "Deo", theDateOfBirth, "John@luv2code.com");
+			Student tempStudent2 = new Student("Marry", "Public", theDateOfBirth, "Marryl@luv2code.com");
+			Student tempStudent3 = new Student("Paul", "Wall", theDateOfBirth, "Paul@luv2code.com");
 
 			// start a transaction
 			session.beginTransaction();
@@ -31,9 +36,10 @@ public class PrimaryKeyDemo {
 			session.save(tempStudent2);
 			session.save(tempStudent3);
 
-
 			// commit transaction
 			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			factory.close();
 		}
